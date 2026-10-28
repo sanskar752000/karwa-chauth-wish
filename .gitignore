@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+node_modules/
+*.zip
+preview-*.png
+.env
+.env.*
+*.pem
+*.key
