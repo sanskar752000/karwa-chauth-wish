@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#07041a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2712%27 fill=%27%23f2c76e%27/%3E%3C/svg%3E">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-eXZaXx0bqJoR4r3tFi1X6vUstTXZE4U4gtKG88aAmuM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-I9Z+6dLv4HMWncbXNO9QQ8huc6fR2BacJ3RWTu1EWkM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
 <title>Happy Karwa Chauth 🌙</title>
@@ -333,7 +333,7 @@ footer{margin-top:44px;font-size:.78rem;letter-spacing:.24em;text-transform:uppe
     <div class="eyebrow reveal">Tonight</div>
     <h2 class="reveal" style="--d:.1s">The moon moment</h2>
     <span class="reveal" data-divider style="display:block"></span>
-    <p class="lead reveal">When the moon finally shows up tonight, come back here and tap the button.</p>
+    <p class="lead reveal">When the moon shows up tonight, come back here and tap the button.</p>
 
     <div class="moon-stage reveal" id="moonStage" style="--d:.15s">
       <div class="moon-wrap2" id="moonTarget">
@@ -358,8 +358,8 @@ footer{margin-top:44px;font-size:.78rem;letter-spacing:.24em;text-transform:uppe
     <div class="moon-lines" id="moonLines" aria-live="polite">
       <p class="l1" style="--d:.6s">Now look at me through the chalni…</p>
       <p class="l2" style="--d:1.6s">you are my forever moon.</p>
-      <p class="l3 play" style="--d:2.8s">And when the prayers are done, your first sip of water will be from my hands — and yes, I’ll feed you the first bite too.</p>
-      <p class="l4" style="--d:4s">(Technically I’m still the fiancé — consider this practice for 5 December. 😄)</p>
+      <p class="l3 play" style="--d:2.8s">Tonight, whatever the sky looks like, you are my moon, and I’m so glad I get to look up at it with you.</p>
+      <p class="l4" style="--d:4s">(Technically I’m still the fiancé, so consider this a rehearsal for every moonrise after 5th December. 😄)</p>
     </div>
   </div>
 </section>
@@ -455,13 +455,13 @@ const LETTER = [
 const MOON_LINES = {
   l1: "Now look at me through the chalni…",
   l2: "you are my forever moon.",
-  l3: "And when the prayers are done, your first sip of water will be from my hands — and yes, I’ll feed you the first bite too.",
-  l4: "(Technically I’m still the fiancé — consider this practice for 5 December. 😄)",
+  l3: "Tonight, whatever the sky looks like, you are my moon, and I’m so glad I get to look up at it with you.",
+  l4: "(Technically I’m still the fiancé, so consider this a rehearsal for every moonrise after 5th December. 😄)",
 };
 
 // Closing section
 const CLOSING_LINE = "Every sunrise, every moonrise — I am yours, {her}.";
-const CLOSING_SUB  = "Forever officially starts on 5 December. Aaj ke liye bas itna: I love you, aur main bohot khush hoon ki tum meri ho.";
+const CLOSING_SUB  = "Forever officially starts on 5th December. Aaj ke liye bas itna: I love you, aur main bohot khush hoon ki tum meri ho.";
 
 // OPTIONAL PHOTOS — leave empty to keep the gallery hidden.
 // Example: [{ src: 'photos/us-1.jpg', caption: 'Our first coffee' }, { src: 'photos/us-2.jpg', caption: 'Us' }]
@@ -531,7 +531,7 @@ const PHOTOS = [];
     $('#chalniDots').innerHTML = s;
   })();
 
-  // pooja thali (plate + chalni + diya + kumkum + petals)
+  // decorative thali (plate + chalni + diya + kumkum + petals)
   (function () {
     const flowers = [[48, 128], [272, 130], [96, 150], [224, 152], [160, 160]];
     let f = '';
@@ -547,7 +547,7 @@ const PHOTOS = [];
       return s;
     })();
     $('#thaliWrap').innerHTML =
-      '<svg class="thali" viewBox="0 0 320 200" role="img" aria-label="A decorated pooja thali with a chalni and a lit diya">' +
+      '<svg class="thali" viewBox="0 0 320 200" role="img" aria-label="A decorated thali with a chalni and a lit diya">' +
       '<circle cx="160" cy="64" r="56" fill="rgba(255,236,190,.08)"/><circle cx="160" cy="64" r="56" fill="url(#pMesh)"/>' +
       '<circle cx="160" cy="64" r="58" fill="none" stroke="url(#gGold)" stroke-width="5"/><g fill="#fff0b8">' + chalniDots + '</g>' +
       '<ellipse cx="160" cy="150" rx="150" ry="42" fill="rgba(0,0,0,.35)" transform="translate(0 10)"/>' +
@@ -768,7 +768,8 @@ const PHOTOS = [];
     $('#daysLbl').textContent = d === 1 ? 'day to go' : 'days to go';
     const wk = Math.floor(d / 7), rem = d % 7;
     const place = WEDDING.place ? ' in ' + WEDDING.place : '';
-    const dateStr = WEDDING.day + ' ' + ['January','February','March','April','May','June','July','August','September','October','November','December'][WEDDING.month - 1] + ' ' + WEDDING.year;
+    const ord = function (n) { const v = n % 100; return n + (v >= 11 && v <= 13 ? 'th' : ({1:'st',2:'nd',3:'rd'}[n % 10] || 'th')); };
+    const dateStr = ord(WEDDING.day) + ' ' + ['January','February','March','April','May','June','July','August','September','October','November','December'][WEDDING.month - 1] + ' ' + WEDDING.year;
     let txt, sr;
     if (d === 0) { txt = 'Today is the day!'; sr = txt; }
     else {
