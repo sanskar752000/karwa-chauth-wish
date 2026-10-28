@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#07041a">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2712%27 fill=%27%23f2c76e%27/%3E%3C/svg%3E">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-JKofddv9LhGpInzP8fZ8I267K5XgPDX8UY14RH5VSv0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-eXZaXx0bqJoR4r3tFi1X6vUstTXZE4U4gtKG88aAmuM='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="no-referrer">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
 <title>Happy Karwa Chauth 🌙</title>
@@ -120,12 +120,13 @@ body.open .scrollcue{animation:cue 3s ease-in-out 5s infinite}
 /* ---------- letter ---------- */
 .card{position:relative;background:linear-gradient(160deg,rgba(48,16,62,.82),rgba(34,10,44,.86));border:1px solid rgba(242,199,110,.55);border-radius:20px;
   padding:clamp(30px,8vw,48px) clamp(22px,6.5vw,44px);box-shadow:0 0 0 6px rgba(242,199,110,.06),0 20px 60px rgba(0,0,0,.45),0 0 70px rgba(255,120,150,.08)}
+.para:first-child{font-family:var(--script);font-size:1.7em;color:var(--rose);line-height:1.3}
 .card::before{content:"";position:absolute;inset:8px;border:1px dashed rgba(242,199,110,.3);border-radius:14px;pointer-events:none}
 .corner{position:absolute;width:54px;height:54px;color:var(--gold)}
 .corner.tl{top:6px;left:6px}.corner.tr{top:6px;right:6px;transform:scaleX(-1)}
 .corner.bl{bottom:6px;left:6px;transform:scaleY(-1)}.corner.br{bottom:6px;right:6px;transform:scale(-1,-1)}
 .letter-head{font-family:var(--script);font-size:clamp(2rem,9vw,2.6rem);color:var(--rose);line-height:1.2;margin-bottom:.4em;overflow-wrap:anywhere}
-.para{margin:0 0 1.05em;opacity:0;transform:translateY(10px);transition:opacity 1s ease,transform 1s ease;scroll-margin-top:90px;overflow-wrap:break-word}
+.para{white-space:pre-line;margin:0 0 1.05em;opacity:0;transform:translateY(10px);transition:opacity 1s ease,transform 1s ease;scroll-margin-top:90px;overflow-wrap:break-word}
 .para.in{opacity:1;transform:none}
 .para.old{opacity:.82}
 .caret{display:inline-block;width:2px;height:1.05em;background:var(--gold);margin-left:2px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
@@ -316,7 +317,6 @@ footer{margin-top:44px;font-size:.78rem;letter-spacing:.24em;text-transform:uppe
     <div class="card reveal" style="--d:.2s">
       <span class="corner tl" data-corner></span><span class="corner tr" data-corner></span>
       <span class="corner bl" data-corner></span><span class="corner br" data-corner></span>
-      <div class="letter-head">My dearest <span data-her>My Love</span>,</div>
       <div id="letterBody"></div>
       <div class="letter-foot">
         <div class="dots" id="dots" aria-hidden="true"></div>
@@ -435,17 +435,20 @@ const WEDDING = { year: 2026, month: 12, day: 5, place: 'Bilaspur' };
 // The day this gift is opened (used only for the countdown ring's starting point).
 const KARWA_DAY = { year: 2026, month: 10, day: 29 };
 
-// THE LOVE LETTER — one string per paragraph; they appear one at a time.
+// THE LOVE LETTER — one string per paragraph; they appear one at a time. \n = line break.
 // {her} and {from} are replaced by the names above (or by ?to= / ?from=).
 // Add, remove or rewrite paragraphs freely.
 const LETTER = [
-  "This is our very first Karwa Chauth together, and I wanted to tell you something properly — not in a hurried message between everything else.",
-  "Today you are fasting for me. For us. For a life we haven’t even started living yet. I don’t think I will ever find the right words for how that makes me feel — humbled, lucky, and completely in love.",
-  "Thank you for your prayers, for your patience, for showing up for me the way you do. Mere chand, if I could take your hunger and your thirst on myself today, I would. Since I can’t, I’ll be right here, counting the minutes with you until the moon rises.",
-  "In just a few weeks — on 5 December, in Bilaspur — we will stand together and begin our forever. Every time I think of that day, my heart does a small happy dance.",
-  "I promise to be your partner in every sunrise and every moonrise. In the quiet mornings, the busy evenings, the tired days and the laughing nights. Jab bhi thak jao, mera saath hamesha tumhare liye hai.",
-  "Aaj raat jab chand nikle, I will be quietly thinking that I am the luckiest person under that sky.",
-  "Happy first Karwa Chauth, meri jaan. Bas thodi der aur… phir chand bhi aayega, aur main paani ka glass lekar tumhare saath.",
+  "Hey my love,",
+  "This is our very first Karwa Chauth together, and I wanted to tell you something properly, not in a hurried message between everything else.",
+  "Look at how far we've come together. Today is a very special day for me, and I feel truly blessed to have you beside me on this auspicious day.",
+  "The time is not far when we will begin our new life together. Today, on this sacred day, I make you a promise. I will always be with you. I will support you in every situation, love you without conditions, and do things for you before you even ask. I will stand beside you, toe to toe, on the tough and rough days, and smile with you on the happy ones.",
+  "I promise that you will always feel safe with me, respected by me, and loved by me.",
+  "There will be days when our energies don't match, when we feel unheard or misunderstood. On those days, my love, remember this: I will still love you the same. I will still look to you for your love, and I know you will look to me too. Hard days will never make me love you any less.",
+  "I learnt today that this festival is not only about fasting the whole day in the hope of a longer life for your partner. It is about devotion, about discipline, and about the quiet tapasya of making a relationship stronger and growing together.",
+  "So on this auspicious day, I pray that our bond grows stronger, our love grows deeper, and that we stay happy together, always.",
+  "Happy Karva Chauth, my love.",
+  "Yours, truly and dearly,\n{from}",
 ];
 
 // "Moon moment" text (shown after she taps the button)
